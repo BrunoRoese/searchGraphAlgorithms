@@ -7,9 +7,10 @@ public class CreateGame {
 
     public CreateGame() {
         this.initialState = new int[][]{
-                {1, 2, 3},
-                {4, 0, 6},
-                {7, 5, 8}};
+                {2, 1, 3},
+                {8, 0, 4},
+                {7, 5, 6}
+        };
         this.goalState = new int[][]{
                 {1, 2, 3},
                 {8, 0, 4},

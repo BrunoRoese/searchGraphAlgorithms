@@ -1,5 +1,6 @@
 package game;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class GameRules {
@@ -48,5 +49,50 @@ public class GameRules {
         }
 
         return List.of();
+    }
+
+    // int i and int j represent the position of the empty cell
+    public int[][] generateNewMoves(int[][] currentState, PossibleMoves possibleMove, int i, int j) {
+        int[][] currentStateCopy = Arrays.stream(currentState)
+                .map(int[]::clone)
+                .toArray(int[][]::new);
+
+        if (currentStateCopy == currentState) {
+            return currentState;
+        }
+
+        switch (possibleMove) {
+            case UP -> {
+                var currentStateNumber = currentStateCopy[i - 1][j];
+                currentStateCopy[i][j] = currentStateNumber;
+                currentStateCopy[i - 1][j] = 0;
+
+                return currentStateCopy;
+            }
+            case DOWN -> {
+                var currentStateNumber = currentStateCopy[i + 1][j];
+                currentStateCopy[i][j] = currentStateNumber;
+                currentStateCopy[i + 1][j] = 0;
+
+                return currentStateCopy;
+            }
+            case LEFT -> {
+                var currentStateNumber = currentStateCopy[i][j - 1];
+                currentStateCopy[i][j] = currentStateNumber;
+                currentStateCopy[i][j - 1] = 0;
+
+                return currentStateCopy;
+            }
+            case RIGHT -> {
+                var currentStateNumber = currentStateCopy[i][j + 1];
+                currentStateCopy[i][j] = currentStateNumber;
+                currentStateCopy[i][j + 1] = 0;
+
+                return currentStateCopy;
+            }
+            default -> {
+                return currentState;
+            }
+        }
     }
 }
