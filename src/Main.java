@@ -1,4 +1,4 @@
-import bfs.BfsExecution;
+import algorithms.BfsFactory;
 import game.CreateGame;
 import game.GameRules;
 import game.PuzzleChecker;
@@ -14,9 +14,9 @@ public class Main {
         if (puzzleChecker.isSolvable(createGame.getInitialState())) {
             System.out.println("Executing...");
 
-            BfsExecution bfsExecution = new BfsExecution(currentState, createGame.getGoalState(), gameRules);
+            BfsFactory bfsFactory = new BfsFactory(currentState, createGame.getGoalState(), gameRules);
 
-            System.out.println(bfsExecution.executeBfs());
+            System.out.println(bfsFactory.execute());
         } else {
             System.out.println("Not solvable");
         }

@@ -1,24 +1,25 @@
-package bfs;
+package algorithms;
 
 import game.GameRules;
 import game.PossibleMoves;
 
 import java.util.*;
 
-public class BfsExecution {
+public class BfsFactory implements SearchAlgorithm {
 
     private final LinkedList<int[][]> openStateList = new LinkedList<>();
     private final LinkedList<int[][]> closedStateList = new LinkedList<>();
     private final int[][] goalState;
     private final GameRules gameRules;
 
-    public BfsExecution(int[][] initialState, int[][] goalState, GameRules gameRules) {
+    public BfsFactory(int[][] initialState, int[][] goalState, GameRules gameRules) {
         this.goalState = goalState;
         openStateList.add(initialState);
         this.gameRules = gameRules;
     }
 
-    public boolean executeBfs() {
+    @Override
+    public boolean execute() {
         Optional<PossibleMoves> lastMove = Optional.empty();
         int counter = 0;
 
