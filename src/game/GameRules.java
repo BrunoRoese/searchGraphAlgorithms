@@ -57,10 +57,6 @@ public class GameRules {
                 .map(int[]::clone)
                 .toArray(int[][]::new);
 
-        if (currentStateCopy == currentState) {
-            return currentState;
-        }
-
         switch (possibleMove) {
             case UP -> {
                 var currentStateNumber = currentStateCopy[i - 1][j];

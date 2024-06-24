@@ -20,7 +20,6 @@ public class BfsFactory implements SearchAlgorithm {
 
     @Override
     public boolean execute() {
-        Optional<PossibleMoves> lastMove = Optional.empty();
         int counter = 0;
 
         while (!openStateList.isEmpty()) {

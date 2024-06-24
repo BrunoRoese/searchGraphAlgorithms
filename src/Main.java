@@ -1,4 +1,5 @@
 import algorithms.BfsFactory;
+import algorithms.GreedyBestSearchFirstFactory;
 import game.CreateGame;
 import game.GameRules;
 import game.PuzzleChecker;
@@ -17,6 +18,12 @@ public class Main {
             BfsFactory bfsFactory = new BfsFactory(currentState, createGame.getGoalState(), gameRules);
 
             System.out.println(bfsFactory.execute());
+
+            System.out.println("Executing...");
+
+            var greedyBestSearchFirstFactory = new GreedyBestSearchFirstFactory(currentState, createGame.getGoalState(), gameRules);
+
+            System.out.println(greedyBestSearchFirstFactory.execute());
         } else {
             System.out.println("Not solvable");
         }
